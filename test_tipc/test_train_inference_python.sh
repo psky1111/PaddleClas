@@ -91,7 +91,7 @@ infer_value1=$(func_parser_value "${lines[50]}")
 if [ ! $epoch_num ]; then
     epoch_num=2
 fi
-if [[ $MODE = 'benchmark_train' ]]; then
+if [[ $MODE = 'benchmark_train' ]] || [[ $train_use_gpu_value = 'npu' ]]; then
     epoch_num=1
 fi
 
@@ -259,9 +259,9 @@ else
                 if [ ${#gpu} -le 2 ]; then # train with cpu or single gpu
                     cmd="${python} ${run_train} ${set_use_gpu}  ${set_save_model} ${set_epoch} ${set_pretrain} ${set_autocast} ${set_batchsize} ${set_train_params1} "
                 elif [ ${#ips} -le 15 ]; then # train with multi-gpu
-                    cmd="${python} -m paddle.distributed.launch --gpus=${gpu} ${run_train} ${set_use_gpu} ${set_save_model} ${set_epoch} ${set_pretrain} ${set_autocast} ${set_batchsize} ${set_train_params1}"
+                    cmd="${python} -m paddle.distributed.launch --devices=${gpu} ${run_train} ${set_use_gpu} ${set_save_model} ${set_epoch} ${set_pretrain} ${set_autocast} ${set_batchsize} ${set_train_params1}"
                 else # train with multi-machine
-                    cmd="${python} -m paddle.distributed.launch --ips=${ips} --gpus=${gpu} ${run_train} ${set_use_gpu} ${set_save_model} ${set_pretrain} ${set_epoch} ${set_autocast} ${set_batchsize} ${set_train_params1}"
+                    cmd="${python} -m paddle.distributed.launch --ips=${ips} --devices=${gpu} ${run_train} ${set_use_gpu} ${set_save_model} ${set_pretrain} ${set_epoch} ${set_autocast} ${set_batchsize} ${set_train_params1}"
                 fi
                 # run train
                 eval "unset CUDA_VISIBLE_DEVICES"

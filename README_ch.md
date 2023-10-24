@@ -24,7 +24,7 @@
 - **💥 直播回放**：PaddleClas研发团队详解PP-ShituV2优化策略与真实产业应用。微信扫描下方二维码，关注公众号并填写问卷后进入官方交流群，获取直播回放与20G重磅图像分类学习大礼包（内含20+数据集、4个垂类模型、70+前沿论文集合）
 
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/50011306/215993395-b2601ca3-5b6e-42f6-9e3e-b2149c4a791e.png" width = "150" height = "150"/>
+    <img src="https://github.com/PaddlePaddle/PaddleClas/assets/12560511/eed2d9e0-28d8-4037-9777-a2d4cf3aabbc" width = "150" height = "150"/>
 </div>
 
 - 2022.9.14 发布**商超零售新革命-生鲜智能结算产业应用**范例
@@ -60,6 +60,32 @@ PaddleClas支持多种前沿图像分类、识别相关算法，发布产业级�
 <div align="center">
 <img src="./docs/images/quick_start/android_demo/PPShiTu_qrcode.png"  width = "170" height = "170" />
 </div>
+
+- 飞桨AI套件（PaddleX）中训练、推理、高性能部署全流程体验：
+    - 通用图像分类：https://aistudio.baidu.com/modelsdetail/287?modelId=287
+    - PP-ShiTuV2通用图像识别系统：https://aistudio.baidu.com/modelsdetail/307?modelId=307
+
+
+## 📖 技术交流合作
+
+- 飞桨AI套件（[PaddleX](https://www.paddlepaddle.org.cn/paddle/PaddleX)）—— 精选产业实用模型的一站式开发平台。包含如下特点：
+  - 【丰富的算法库】PaddleX提供36个精选模型，覆盖了10大AI任务场景，并附带模型推理benchmark数据。开发者可以根据业务需求轻松选择合适的模型，并进行开发和部署。
+  - 【简便的开发方式】PaddleX支持无代码和低代码开发，只需四个简单步骤，即可完成全流程AI开发，包括数据处理、模型训练、验证和部署。
+  - 【高效的模型部署】PaddleX平台提供强大的部署能力，支持快速实现产业级部署，实现跨平台、跨硬件的部署。
+  - 【多样的硬件支持】PaddleX不仅能够在AI Studio云端使用，还支持在Windows本地环境使用，并正在积极扩展支持Linux版本、昆仑芯版本、昇腾版本和寒武纪版本。
+  - 【共赢的合作机会】除了提供便捷的AI应用开发工具，PaddleX还为企业提供商业收益机会，共同探索更多商业空间，实现共同成长和共赢。
+
+- 作为一款高效的开发神器，PaddleX值得每一位开发者拥有。
+
+- PaddleX官网地址：https://www.paddlepaddle.org.cn/paddle/PaddleX
+
+- 微信扫描下面二维码添加运营同学，并回复【PaddleX】，运营同学会邀请您加入官方交流群，获得更高效的问题答疑。
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/dygraph/doc/joinus_paddlex.jpg"  width = "150" height = "150",caption='' />
+<p>飞桨AI套件【PaddleX】技术交流群二维码</p>
+</div>
+
 
 ## 👫 开源社区
 
