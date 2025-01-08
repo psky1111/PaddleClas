@@ -606,24 +606,28 @@ class Engine(object):
             model.base_model.quanter.save_quantized_model(model,
                                                           save_path + "_int8")
         else:
+            paddle_version = version.parse(paddle.__version__)
             if self.config["Global"].get("export_with_pir", False):
-                paddle_version = version.parse(paddle.__version__)
                 assert (paddle_version >= version.parse('3.0.0b2') or
                         paddle_version == version.parse('0.0.0')
                         ) and os.environ.get("FLAGS_enable_pir_api",
                                              None) not in ["0", "False"]
                 paddle.jit.save(model, save_path)
             else:
-                model.forward.rollback()
-                with paddle.pir_utils.OldIrGuard():
-                    model = paddle.jit.to_static(
-                        model,
-                        input_spec=[
-                            paddle.static.InputSpec(
-                                shape=[None] +
-                                self.config["Global"]["image_shape"],
-                                dtype='float32')
-                        ])
+                if paddle_version >= version.parse(
+                        '3.0.0b2') or paddle_version == version.parse('0.0.0'):
+                    model.forward.rollback()
+                    with paddle.pir_utils.OldIrGuard():
+                        model = paddle.jit.to_static(
+                            model,
+                            input_spec=[
+                                paddle.static.InputSpec(
+                                    shape=[None] +
+                                    self.config["Global"]["image_shape"],
+                                    dtype='float32')
+                            ])
+                        paddle.jit.save(model, save_path)
+                else:
                     paddle.jit.save(model, save_path)
         logger.info(
             f"Export succeeded! The inference model exported has been saved in \"{save_path}\"."
