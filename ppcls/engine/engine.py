@@ -106,7 +106,7 @@ class Engine(object):
 
         # set device
         assert self.config["Global"]["device"] in [
-            "cpu", "gpu", "xpu", "npu", "mlu", "ascend", "intel_gpu", "mps",
+            "cpu", "gpu", "xpu", "npu", "mlu", "dcu", "ascend", "intel_gpu", "mps",
             "gcu"
         ]
         self.device = paddle.set_device(self.config["Global"]["device"])
